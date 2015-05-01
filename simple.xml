@@ -1,1 +1,58 @@
-<xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="controls_whileUntil" id="22" inline="false" x="303" y="41">
+    <field name="MODE">UNTIL</field>
+    <value name="NUMBER">
+      <block type="sensor_button" id="62">
+        <field name="OBJECT">ENTER</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="variables_set" id="115" inline="true">
+        <field name="VAR">leftfront</field>
+        <value name="VALUE">
+          <block type="sensor_object" id="123">
+            <field name="OBJECT">LEFTFRONT</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="133" inline="false">
+            <value name="IF0">
+              <block type="logic_compare" id="150" inline="true">
+                <field name="OP">GT</field>
+                <value name="A">
+                  <block type="variables_get" id="154">
+                    <field name="VAR">leftfront</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="161">
+                    <field name="NUM">80</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="movement_forward" id="171">
+                <next>
+                  <block type="robot_delay" id="173" inline="true">
+                    <value name="DELAY">
+                      <block type="math_number" id="180">
+                        <field name="NUM">200</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="movement_stop" id="190"></block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="movement_stop" id="200"></block>
+    </next>
+  </block>
+</xml>
